@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Class that darkens the page -->
+    <div class="darken">
+    </div>
+    <div class="page">
+        <!-- Help and UI -->
+        <div class="helpUI">
+            <button class="help buttonColor">Help</button>
+            <div class="UI">
+                <button class="customUI buttonColor">UI</button>
+                <div class="colorInput">
+                    <input class="customBorder" id="mainColor" type="text" placeholder="Set main color">
+                    <input class="customBorder" id="secondColor" type="text" placeholder="Set secondary color">
+                    <input class="customBorder" id="background" type="text" placeholder="Background color">
+                    <input class="buttonColor" type="submit" id="submitColor">
+                </div>
+            </div>
+        </div>
+        <!-- User -->
+        <h4 class="user">Username</h4>
+        <div class="avatImg">
+            <div class="avaTut" id="tutCom">
+                <p>Click on avatar image</p>
+            </div>
+            <img src="https://res.cloudinary.com/techsnips/image/fetch/w_2000,f_auto,q_auto,c_fit/https://adamtheautomator.com/content/images/size/w2000/2019/10/user-1633249_1280.png" alt="">
+            <input class="imageInsert customBorder" type="url" placeholder="Your image link here" pattern="https://.*" required>
+            <input class="submitAvat buttonColor" type="submit">
+        </div>
+
+        <!-- Interactions -->
+        <div class="interactions">
+            <!-- Moto -->
+            <div class="moto">
+                <div class="tutMoto" id="tutCom">
+                    <p>Click "Your motto for today"</p>
+                </div>
+                <h4>Your motto for today</h4>
+                <input class="motoInsert customBorder" type="text" placeholder="Your moto here">
+                <input class="submit buttonColor" type="submit">
+            </div>
+            <!-- Media -->
+            <div class="mediaWrapper">
+                <!-- Music/Video -->
+                <div class="musicWrapper">
+                    <div class="music">
+                        <div class="tutMusic " id="tutCom">
+                            <p>Click "Your favorite youtube video"</p>
+                        </div>
+                        <h4>Your favorite youtube video</h4>
+                        <input class="musicInsert customBorder" type="text" placeholder="Your youtube link here">
+                        <input class="submit buttonColor" type="submit">
+                    </div>
+                    <div class="musicControl">
+                        <div class="musicAdd">
+                            <div class="musicLink"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fav Image -->
+                <div class="image">
+                    <div class="tutImg " id="tutCom">
+                        <p>Click "Your favorite image"</p>
+                    </div>
+                    <h4>Your favorite image</h4>
+                    <input class="imageInsertTwo customBorder " type="url" placeholder="Your image link here" pattern="https://.*" required>
+                    <input class="submit buttonColor " type="submit">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="yourpage.js"></script>
+</body>
+
+</html>
