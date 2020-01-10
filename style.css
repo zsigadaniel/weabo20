@@ -4,6 +4,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 header .top {
@@ -357,6 +358,7 @@ form .regSign a {
           align-items: center;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .page .interactions .tutMoto {
@@ -394,6 +396,7 @@ form .regSign a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .page .interactions .musicWrapper {
@@ -501,11 +504,13 @@ form .regSign a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .page .interactions .image img {
   width: 100%;
   padding: 0 10px;
+  margin-top: 18px;
 }
 
 .page .interactions .image h4 {

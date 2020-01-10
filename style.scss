@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 //Reusebles
@@ -250,6 +251,7 @@ form {
             align-items: center;
             text-align: center;
             cursor: pointer;
+            margin-bottom: 10px;
         }
         //Moto info
         .tutMoto {
@@ -276,6 +278,7 @@ form {
             align-items: center;
             position: relative;
             cursor: pointer;
+            margin-bottom: 10px;
         }
         //Music wrapper
         .musicWrapper {
@@ -356,9 +359,11 @@ form {
             align-items: center;
             position: relative;
             cursor: pointer;
+            margin-bottom: 10px;
             img {
                 width: 100%;
                 padding: 0 10px;
+                margin-top: 18px;
             }
             h4 {
                 text-align: center;

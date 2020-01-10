@@ -172,7 +172,11 @@ function interactions() {
         musicInsert.value = '';
         let musicGet = localStorage.getItem('musicLink' + `${userPos}`);
         if (musicGet == null) return;
-        musicHtml.innerHTML = `<iframe src="${musicGet.replace('watch?v=', "embed/")}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        let tester = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        let matcher = musicGet.match(tester);
+        if (matcher && matcher[2].length == 11) {
+            musicHtml.innerHTML = `<iframe src="https://www.youtube.com/embed/${matcher[2]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        };
         musicAdd.classList.add('musicModify');
         musicControl.style.display = 'flex';
     });
@@ -184,7 +188,11 @@ function interactions() {
             musicControl.style.display = 'none';
             return;
         };
-        musicHtml.innerHTML = `<iframe src="${musicGet.replace('watch?v=', "embed/")}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        let tester = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        let matcher = musicGet.match(tester);
+        if (matcher && matcher[2].length == 11) {
+            musicHtml.innerHTML = `<iframe src="https://www.youtube.com/embed/${matcher[2]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        };
         musicAdd.classList.add('musicModify');
         musicControl.style.display = 'flex';
     };
