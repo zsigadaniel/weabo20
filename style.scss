@@ -25,39 +25,68 @@ $colorRed: rgb(233, 121, 80);
 
 // Header of index
 header {
-    // Top zone
-    .top {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        h1 {
-            color: $colorRed;
-            margin-top: 5px;
-        }
-        h3 {
-            margin-top: 10px;
-            color: $colorBlue;
-        }
-    }
+    // Main
     p {
         margin: 10px;
         padding: 10px;
         display: flex;
         justify-content: center;
         text-align: center;
-        border: 1px solid $colorRed;
+        background: $colorRed;
+        color: whitesmoke;
+        font-weight: bold;
+        font-size: 18px;
+        border-left: 10px solid $colorBlue;
     }
+}
+
+.bring-it {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        background: $colorBlue;
+        border: none;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: whitesmoke;
+        border-bottom: 5px solid $colorRed;
+        transition: 0.3s ease-in-out;
+    }
+    button:hover {
+        background: $colorRed;
+        border-bottom: 5px solid $colorBlue;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.main {
     // Included interactions
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    pointer-events: none;
+    position: relative;
+    opacity: 0;
+    top: 200px;
+    transition: 0.4s ease-in-out;
     .included {
         padding: 10px;
+        border-bottom: 5px solid $colorRed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         h2 {
             color: $colorBlue;
             font-size: 20px;
         }
         ul {
-            list-style: square $colorBlue;
-            margin: 10px;
+            list-style: none;
+            text-align: center;
             li {
                 margin: 10px;
             }
@@ -71,16 +100,61 @@ header {
     // Initiate
     .getStarted {
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-top: 5px solid $colorBlue;
+        h2 {
+            color: $colorBlue;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
         a {
-            padding: 10px;
+            margin-top: 15px;
             background: $colorRed;
             text-decoration: none;
             color: whitesmoke;
             font-weight: bold;
+            padding: 20px;
+            border-bottom: 5px solid $colorBlue;
+            transition: 0.3s ease-in-out;
         }
         a:hover {
             background: $colorBlue;
+            border-bottom: 5px solid $colorRed;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+.reveal-main {
+    transition: 0.4s ease-in-out;
+    opacity: 1;
+    top: 0px;
+    pointer-events: auto;
+}
+
+@include resize2 {
+    .main {
+        display: flex;
+        flex-direction: row;
+        .included {
+            border-right: 5px solid $colorRed;
+            width: 50%;
+        }
+        .getStarted {
+            width: 50%;
+            border-left: 5px solid $colorBlue;
+        }
+    }
+}
+
+@include resize {
+    header {
+        p {
+            font-size: 2vw;
         }
     }
 }
@@ -118,6 +192,7 @@ form {
             color: whitesmoke;
             font-size: 15px;
             margin-top: 10px;
+            cursor: pointer;
         }
         a {
             background: $colorBlue;

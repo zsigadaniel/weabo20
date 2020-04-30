@@ -8,7 +8,6 @@ const signIn = document.querySelector('.regSign a');
 let mainArray = [];
 let passArray = [];
 
-
 // Register event listener
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -74,6 +73,7 @@ form.addEventListener('submit', (e) => {
     localStorage.setItem("user" + `${counter}`, userInput);
     localStorage.setItem("password" + `${counter}`, pass);
 });
+
 
 //Sign in
 signIn.addEventListener("click", (e) => {
