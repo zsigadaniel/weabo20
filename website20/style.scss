@@ -1,0 +1,641 @@
+// Main settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+//Reusebles
+$colorBlue:rgb(49, 123, 184);
+$colorRed: rgb(233, 121, 80);
+// Mixins
+@mixin resize {
+    @media screen and (min-width: 700px) {
+        @content;
+    }
+}
+
+@mixin resize2 {
+    @media screen and (min-width: 1300px) {
+        @content;
+    }
+}
+
+// Header of index
+header {
+    // Main
+    p {
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background: $colorRed;
+        color: whitesmoke;
+        font-weight: bold;
+        font-size: 18px;
+        border-left: 10px solid $colorBlue;
+    }
+}
+
+.bring-it {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        background: $colorBlue;
+        border: none;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: whitesmoke;
+        border-bottom: 5px solid $colorRed;
+        transition: 0.3s ease-in-out;
+    }
+    button:hover {
+        background: $colorRed;
+        border-bottom: 5px solid $colorBlue;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.main {
+    // Included interactions
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    pointer-events: none;
+    position: relative;
+    opacity: 0;
+    top: 200px;
+    transition: 0.4s ease-in-out;
+    .included {
+        padding: 10px;
+        border-bottom: 5px solid $colorRed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            color: $colorBlue;
+            font-size: 20px;
+        }
+        ul {
+            list-style: none;
+            text-align: center;
+            li {
+                margin: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: $colorBlue;
+                font-weight: bold;
+            }
+        }
+    }
+    // Initiate
+    .getStarted {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-top: 5px solid $colorBlue;
+        h2 {
+            color: $colorBlue;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            margin-top: 15px;
+            background: $colorRed;
+            text-decoration: none;
+            color: whitesmoke;
+            font-weight: bold;
+            padding: 20px;
+            border-bottom: 5px solid $colorBlue;
+            transition: 0.3s ease-in-out;
+        }
+        a:hover {
+            background: $colorBlue;
+            border-bottom: 5px solid $colorRed;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+.reveal-main {
+    transition: 0.4s ease-in-out;
+    opacity: 1;
+    top: 0px;
+    pointer-events: auto;
+}
+
+@include resize2 {
+    .main {
+        display: flex;
+        flex-direction: row;
+        .included {
+            border-right: 5px solid $colorRed;
+            width: 50%;
+        }
+        .getStarted {
+            width: 50%;
+            border-left: 5px solid $colorBlue;
+        }
+    }
+}
+
+@include resize {
+    header {
+        p {
+            font-size: 2vw;
+        }
+    }
+}
+
+// Register
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+        margin-top: 10px;
+        font-weight: bold;
+        color: $colorBlue;
+    }
+    input {
+        margin-top: 10px;
+        background: $colorRed;
+        border-style: none;
+        padding: 5px;
+    }
+    input::placeholder {
+        color: whitesmoke;
+    }
+    // Register and sign in buttons
+    .regSign {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        button {
+            background: $colorBlue;
+            border-style: none;
+            padding: 5px;
+            color: whitesmoke;
+            font-size: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        a {
+            background: $colorBlue;
+            border-style: none;
+            padding: 5px;
+            color: whitesmoke;
+            font-size: 15px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+    }
+    @supports (-ms-ime-align:auto) {
+        /* Edge only */
+        .regSign {
+            justify-content: space-between;
+            width: 160px;
+        }
+    }
+}
+
+// Your page
+.darken {
+    background: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    opacity: 0.4;
+    display: none;
+}
+
+.getStarted {
+    display: flex;
+}
+
+//Your page
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+    div {
+        margin-top: 10px;
+    }
+    // Help and UI
+    .helpUI {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        transition: 0.2s ease-in-out;
+        // Help button
+        .help {
+            background: $colorRed;
+            border-style: none;
+            padding: 5px;
+            color: whitesmoke;
+            margin-left: 10px;
+            transition: 0.2s ease-in-out;
+        }
+        .help:hover {
+            transform: scale(1.3);
+            transition: 0.2s ease-in-out;
+        }
+        //UI Button
+        .UI {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            .customUI {
+                background: $colorRed;
+                border-style: none;
+                padding: 5px;
+                margin-right: 10px;
+                margin-top: 2px;
+                color: whitesmoke;
+                transition: 0.2s ease-in-out;
+            }
+            .customUI:hover {
+                transform: scale(1.3);
+                transition: 0.2s ease-in-out;
+            }
+            .colorInput {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                input {
+                    margin-top: 5px;
+                    border: 1px $colorRed solid;
+                    opacity: 0;
+                    padding: 2px;
+                    width: 0;
+                    transition: 0.2s ease-in-out;
+                }
+                #submitColor {
+                    background: $colorRed;
+                    color: whitesmoke;
+                    border-style: none;
+                }
+                .revealColorInput {
+                    width: 130px;
+                    opacity: 1;
+                    transition: 0.2s ease-in-out;
+                }
+            }
+        }
+    }
+    // Class to add distance betwen avatar and lower page interactions
+    .lower {
+        margin-bottom: 20px;
+        transition: 0.2s ease-in-out;
+    }
+    // Page interactions
+    .interactions {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        font-size: 20px;
+        color: $colorBlue;
+        font-weight: bold;
+        //Moto
+        .moto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        //Moto info
+        .tutMoto {
+            position: absolute;
+            top: 160px;
+            background: whitesmoke;
+            border: 1px black solid;
+            padding: 5px;
+            width: none;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.2s ease-in-out;
+            z-index: 999;
+            p {
+                font-size: 20px;
+                color: $colorBlue;
+            }
+        }
+        //Music
+        .music {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        //Music wrapper
+        .musicWrapper {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        //Music control
+        .musicControl {
+            width: 100vw;
+            margin: 0;
+        }
+        //Music info
+        .tutMusic {
+            text-align: center;
+            position: absolute;
+            background: whitesmoke;
+            border: 1px black solid;
+            padding: 5px;
+            z-index: 9999;
+            top: -20px;
+            width: none;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.2s ease-in-out;
+            pointer-events: none;
+            p {
+                font-size: 20px;
+                color: $colorBlue;
+            }
+        }
+        //Music Mixins
+        @include resize2 {
+            .music {
+                margin-top: 0;
+            }
+        }
+        @include resize {
+            .musicControl {
+                width: 700px;
+            }
+            h4 {
+                width: 300px;
+                text-align: center;
+            }
+        }
+        //Makes the video resizing act correctly
+        .musicAdd {
+            display: none;
+            justify-content: center;
+            position: relative;
+            iframe {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        .musicModify {
+            display: flex;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0;
+            width: 100%;
+        }
+        //Fav Image
+        .image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+                padding: 0 10px;
+                margin-top: 18px;
+            }
+            h4 {
+                text-align: center;
+            }
+        }
+        //Fav image info
+        .tutImg {
+            position: absolute;
+            top: -10px;
+            background: whitesmoke;
+            border: 1px black solid;
+            padding: 5px;
+            text-align: center;
+            width: none;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s ease-in-out;
+            z-index: 9999;
+            p {
+                font-size: 20px;
+                color: $colorBlue;
+            }
+        }
+        //Submit button for user input
+        .submit {
+            background: $colorRed;
+            border: none;
+            color: whitesmoke;
+            height: 0;
+            transition: 0.2s ease-in-out;
+        }
+        //Reveals submit button
+        .revealSubmit {
+            padding: 2px 5px;
+            height: 20px;
+            margin-top: 10px;
+            transition: 0.2s ease-in-out;
+        }
+        //Reveals tutorial information
+        .revealTut {
+            width: fit-content;
+            opacity: 1;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    //Media wrapper
+    .mediaWrapper {
+        margin-top: 0;
+    }
+    //Media Mixin
+    @include resize2 {
+        .mediaWrapper {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+        .image {
+            width: 50%;
+            margin-top: 0;
+        }
+        @supports (-ms-ime-align:auto) {
+            /* Edge only */
+            .mediaWrapper {
+                justify-content: space-between;
+                width: 90%;
+            }
+        }
+    }
+    //Avatar image
+    .avatImg {
+        border-radius: 50%;
+        background: $colorRed;
+        background-size: cover;
+        background-position: center;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.2s ease-in-out;
+        img {
+            transform: translateY(2px);
+            width: 50px;
+            height: 50px;
+        }
+        // Submit button
+        .submitAvat {
+            position: absolute;
+            top: 160px;
+            background: $colorRed;
+            border: none;
+            color: whitesmoke;
+            height: 0;
+            transition: 0.2s ease-in-out;
+        }
+        //Class to reveal the submit button
+        .revealSubmit {
+            padding: 2px 5px;
+            height: 20px;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    //Avatar tutorial infrormation
+    .avaTut {
+        position: absolute;
+        top: 110px;
+        background: whitesmoke;
+        border: 1px black solid;
+        padding: 5px;
+        text-align: center;
+        z-index: 9999;
+        width: none;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        p {
+            font-weight: bold;
+            font-size: 20px;
+            color: $colorBlue;
+        }
+    }
+    //Tourial information reveal for avatar
+    .revealTut {
+        width: fit-content;
+        opacity: 1;
+        transition: 0.2s ease-in-out;
+    }
+    //Image input
+    .imageInsert {
+        position: absolute;
+        top: 110px;
+        opacity: 0;
+        width: 0;
+        transition: 0.2s ease-in-out;
+        border: 1px $colorRed solid;
+        z-index: -1;
+        img {
+            position: relative;
+            z-index: -1;
+        }
+    }
+    //Class that reveals input for avatar image
+    .reveal {
+        opacity: 1;
+        top: 130px;
+        width: 150px;
+        padding: 5px;
+        transition: 0.2s ease-in-out;
+        z-index: 1;
+    }
+    //User input
+    .motoInsert {
+        transform: translateY(-20px);
+        opacity: 0;
+        width: 0;
+        transition: 0.2s ease-in-out;
+        border: 1px $colorRed solid;
+        z-index: -1;
+        height: 0;
+    }
+    .musicInsert {
+        transform: translateY(-20px);
+        opacity: 0;
+        width: 0;
+        transition: 0.2s ease-in-out;
+        border: 1px $colorRed solid;
+        position: relative;
+        z-index: -1;
+        height: 0;
+    }
+    .imageInsertTwo {
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+        z-index: -1;
+        height: 0;
+        width: 0;
+    }
+    //Class that reveals user interactions input's
+    .revealInter {
+        margin-top: 5px;
+        transform: translateY(0);
+        opacity: 1;
+        width: 180px;
+        transition: 0.2s ease-in-out;
+        border: 1px $colorRed solid;
+        position: relative;
+        z-index: 99;
+        padding: 5px;
+        height: 30px;
+    }
+}
+
+//Disables user input during tutorial initiation
+.disable {
+    pointer-events: none;
+}

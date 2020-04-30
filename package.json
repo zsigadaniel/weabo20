@@ -1,0 +1,16 @@
+{
+    "name": "webtwenty",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "deploy": "gh-pages -d website20"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://zsigadaniel.github.io/weabo20",
+    "dependencies": {
+        "gh-pages": "^2.2.0"
+    }
+}
